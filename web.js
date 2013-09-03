@@ -16,11 +16,13 @@ app.get('/', function(request, response) {
 });
 
 app.get('/about', function(request, response) {
-    var html = fs.readFileSync(aboutfile).toString();
+    var about_html = fs.readFileSync(aboutfile).toString();
+    response.send(about_html);
 });
 
 app.get('/contact', function(request,response) {
-    var html =fs.readFileSync(contactfile).toString();
+    var contact_html =fs.readFileSync(contactfile).toString();
+    response.send(contact_html);
 });
 
 var port = process.env.PORT || 8080;
