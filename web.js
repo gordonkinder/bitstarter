@@ -3,6 +3,9 @@
 var express = require('express');
 var fs = require('fs');
 var htmlfile = "index.html";
+var aboutfile = "about.html";
+var contactfile = "contact.html";
+
 
 var app = express.createServer (express.logger());
 app.use(express.logger());
@@ -13,11 +16,11 @@ app.get('/', function(request, response) {
 });
 
 app.get('/about', function(request, response) {
-    res.send(fs.readFileSync('./about.html').toString());
+    res.send(fs.readFileSync(aboutfile).toString());
 });
 
 app.get('/contact', function(request,response) {
-    res.send(fs.readFileSync('.contact.html').toString());
+    res.send(fs.readFileSync(contactfile).toString());
 });
 
 var port = process.env.PORT || 8080;
