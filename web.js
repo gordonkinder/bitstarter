@@ -12,6 +12,14 @@ app.get('/', function(request, response) {
   response.send(html);
 });
 
+app.get('/about', function(request, response) {
+    res.send(fs.readFileSync('./about.html').toString());
+});
+
+app.get('/contact', function(request,response) {
+    res.send(fs.readFileSync('.contact.html').toString());
+});
+
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
