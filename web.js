@@ -5,7 +5,9 @@ var fs = require('fs');
 var htmlfile = "index.html";
 var aboutfile = "about.html";
 var contactfile = "contact.html";
-var productfile = "productdemo.html";
+var product1file = "productdemo.html";
+var product2file = "productdemo2.html";
+var product3file = "productdemo3.html";
 
 var app = express.createServer (express.logger());
 app.use(express.logger());
@@ -25,9 +27,19 @@ app.get('/contact', function(request, response) {
     response.send(contact_html);
 });
 
-app.get('/productdemo', function(request, response) {
-    var product_html =fs.readFileSync(productfile).toString(); 
+app.get('/productdemo1', function(request, response) {
+    var product_html =fs.readFileSync(product1file).toString(); 
     response.send(product_html);
+});
+
+app.get('/productdemo2',function(request, response) {
+    var product2_html =fs.readFileSync(product2file).toString();
+    response.send(product2_html);
+});
+
+app.get('/productdemo3',function(request, response) {
+    var product3_html =fs.readFileSync(product3file).toString();
+    response.send(product3_html);
 });
 
 var port = process.env.PORT || 8080;
