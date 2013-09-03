@@ -5,7 +5,7 @@ var fs = require('fs');
 var htmlfile = "index.html";
 var aboutfile = "about.html";
 var contactfile = "contact.html";
-
+var productfile = "productdemo.html";
 
 var app = express.createServer (express.logger());
 app.use(express.logger());
@@ -20,9 +20,14 @@ app.get('/about', function(request, response) {
     response.send(about_html);
 });
 
-app.get('/contact', function(request,response) {
+app.get('/contact', function(request, response) {
     var contact_html =fs.readFileSync(contactfile).toString();
     response.send(contact_html);
+});
+
+app.get('/productdemo', function(request, response) {
+    var product_html =fs.readFileSync(productfile).toString(); 
+    response.send(product_html);
 });
 
 var port = process.env.PORT || 8080;
