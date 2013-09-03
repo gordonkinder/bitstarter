@@ -27,7 +27,7 @@ app.get('/contact', function(request, response) {
     response.send(contact_html);
 });
 
-app.get('/productdemo1', function(request, response) {
+app.get('/productdemo', function(request, response) {
     var product_html =fs.readFileSync(product1file).toString(); 
     response.send(product_html);
 });
